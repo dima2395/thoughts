@@ -1,0 +1,10 @@
+Django==1.10.3
+django-appconf==1.0.2
+django-countries==4.0
+django-crispy-forms==1.6.1
+django-imagekit==3.3
+django-registration==2.2
+pilkit==1.1.13
+Pillow==3.4.2
+psycopg2==2.6.2
+six==1.10.0

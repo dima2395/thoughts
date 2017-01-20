@@ -1,0 +1,14 @@
+{% extends "thoughts/base.html" %}
+{% load i18n %}
+
+{% block main %}
+<form method="post" action=".">
+  {% include "thoughts/form_template.html" %}
+
+  <input type="submit" value="{% trans 'Log in' %}" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+<p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>
+<p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
+{% endblock %}

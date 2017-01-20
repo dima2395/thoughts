@@ -1,0 +1,10 @@
+{% extends "thoughts/base.html" %}
+{% load i18n %}
+
+{% block main %}
+<form method="post" action=".">
+  {% include "thoughts/form_template.html" %}
+
+  <input type="submit" value="{% trans 'Submit' %}" />
+</form>
+{% endblock %}

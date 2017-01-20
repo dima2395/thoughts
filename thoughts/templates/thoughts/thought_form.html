@@ -1,0 +1,34 @@
+{% extends "thoughts/base.html" %}
+
+{% block title %}
+  Add your Though
+{% endblock title %}
+
+{% block main %}
+  
+  <div class="thought-update">
+    {% if object %}
+      <h2>Edit thought</h2>
+    {% else %}
+      <h2>Add new thought</h2>
+    {% endif %}
+    <div class="wrapper">
+      <form action="." method="post">
+        {% include "thoughts/form_template.html" %}
+        <button type="submit" class="btn btn-success btn-lg">
+          {% if object %}
+            Save
+          {% else %}
+            Add
+          {% endif %}
+        </button>
+      </form>
+      {% if object %}
+          <form action="{% url "thoughts:thought-delete" object.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-lg thought-delete-button">Delete</button>
+          </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock main %}

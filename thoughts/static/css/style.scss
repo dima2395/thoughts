@@ -1,0 +1,327 @@
+$female-color: #ff28e4;
+$male-color: #287eff;
+$unknown-color: #ff8b28;
+
+
+
+body {
+  background-image: url('../images/bg.png');
+}
+
+.header {
+  nav.navbar {
+    border-radius: 0px;
+    -webkit-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+    -moz-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+    box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+  }
+}
+
+
+// MAIN START *********************************************************************
+.main {
+  margin-top: 70px;
+  margin-bottom: 20px;
+
+  .thoughts {
+    background-color: #fff;
+    padding: 30px 40px 20px;
+    border-radius: 3px;
+    border: 1px solid #d8d8d8;
+
+    h1 {
+      margin-top: 0;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .thought {
+      margin-bottom: 25px;
+      color: black;
+      transition: all 0.2s;
+      padding: 20px 10px 15px;
+      border-radius: 5px;
+      -webkit-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+      -moz-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+      box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+
+      .thought-author-info {
+        .avatar-wrapper {
+          text-align: center;
+          .avatar {
+            border-radius:50%;
+            width: 75px;
+            height: 75px;
+            border: 3px solid $unknown-color;
+            text-align: center;
+
+            &.m {
+              border-color: $male-color;
+            }
+
+            &.f {
+              border-color: $female-color;
+            }
+          }
+        }
+
+        .nickname {
+          text-align: center;
+          font-weight: bold;
+          padding-top: 5px;
+          span {
+            color: $unknown-color;
+
+            &.f {
+              color: $female-color;
+            }
+
+            &.m {
+              color: $male-color;
+            }
+          }
+        }
+      }
+
+      .thought-content {
+        color: black;
+        min-height: 95px;
+      }
+
+      .date {
+        text-align: right;
+        padding: 10px 15px;
+      }
+
+      &-positive {
+        background-color: rgba(185, 255, 171, 0.76);
+
+        &:hover {
+          background-color: rgba(168, 239, 153, 1);
+        }
+      }
+
+      &-negative {
+        background-color: rgba(255, 187, 198, 0.76);
+
+        &:hover {
+          background-color: rgba(255, 162, 177, 1);
+        }
+      }
+
+      &-neutral {
+        background-color: rgba(230, 230, 230, 0.76);
+
+        &:hover {
+          background-color: rgba(208, 206, 206, 1);
+        }
+      }
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+// MAIN END *********************************************************************
+
+
+ // update/delete page buttons(css sram ;DD)
+ .thought-update {
+    background-color: #FFF;
+    padding: 20px 40px 80px;
+    border-radius: 3px;
+    border: 1px solid #d8d8d8;
+
+    .wrapper {
+    position: relative;
+
+    form button {
+      position: absolute;
+    }
+    .thought-delete-button {
+      margin-left: 100px;
+    }
+  }
+ }
+
+
+
+//PARASHA NADO POMENEATI1!!! dETAIL PAGE
+.thought {
+  margin-bottom: 25px;
+  color: black;
+  transition: all 0.2s;
+  padding: 20px 10px 15px;
+  border-radius: 5px;
+  -webkit-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+  -moz-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+  box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+
+  .thought-author-info {
+    .avatar-wrapper {
+      text-align: center;
+      .avatar {
+        border-radius:50%;
+        width: 75px;
+        height: 75px;
+        border: 3px solid $unknown-color;
+        text-align: center;
+
+        &.m {
+          border-color: $male-color;
+        }
+
+        &.f {
+          border-color: $female-color;
+        }
+      }
+    }
+
+    .nickname {
+      text-align: center;
+      font-weight: bold;
+      padding-top: 5px;
+      span {
+        color: $unknown-color;
+
+        &.f {
+          color: $female-color;
+        }
+
+        &.m {
+          color: $male-color;
+        }
+      }
+    }
+  }
+
+  .thought-content {
+    color: black;
+    min-height: 95px;
+  }
+
+  .date {
+    text-align: right;
+    padding: 10px 15px;
+  }
+
+  &-positive {
+    background-color: rgba(185, 255, 171, 0.76);
+
+  }
+
+  &-negative {
+    background-color: rgba(255, 187, 198, 0.76);
+  }
+
+  &-neutral {
+    background-color: rgba(230, 230, 230, 0.76);
+  }
+}
+
+
+//Comment on detail page
+.comments {
+  background-color: #FFF;
+  padding: 20px 40px 20px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+  .title {
+    font-size: 25px;
+    margin: 15px 0;
+  }
+
+  .comment {
+    padding: 10px 5px;
+    .user-avatar {
+      float: left;
+      .avatar{
+        border-radius:50%;
+        width: 60px;
+        height: 60px;
+        border: 3px solid $unknown-color;
+        &.m {
+          border-color: $male-color;
+        }
+
+        &.f {
+          border-color: $female-color;
+        }
+      }
+    }
+
+    .content {
+      margin-left: 60px;
+      padding: 0px 15px;
+
+      .header {
+        padding-top: 3px;
+        .nickname {
+          font-weight: bold;
+          color: $unknown-color;
+
+          &.f {
+            color: $female-color;
+          }
+
+          &.m {
+            color: $male-color;
+          }
+        }
+
+        .date {
+          font-size: 12px;
+          color: #767676;
+          padding-left: 10px;
+        }
+
+        a:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+
+.profile-page {
+  background-color: #FFF;
+  padding: 20px 40px 20px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+
+  .avatar {
+    margin-top: 30px;
+    text-align: center;
+
+    img {
+      border-radius: 50%;
+      border: 5px solid $unknown-color;
+      width: 250px;
+      height: 250px;
+
+      &.f {
+            border-color: $female-color;
+      }
+
+      &.m {
+        border-color: $male-color;
+      }
+    }
+
+    .username {
+      color: $unknown-color;
+      font-weight: bold;
+      font-size: 18px;
+
+      &.f {
+            color: $female-color;
+      }
+
+      &.m {
+        color: $male-color;
+      }
+    }
+  }
+}

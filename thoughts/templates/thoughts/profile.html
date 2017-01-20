@@ -1,0 +1,36 @@
+{% extends "thoughts/base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block main %}
+  <div class="profile-page">
+    {% if object %}
+
+      {% if messages %}
+      <div class="messages">
+          {% for message in messages %}
+          <div class="alert alert-danger" role="alert">
+            {{ message }}
+          </div>
+          {% endfor %}
+      </div>
+      {% endif %}
+
+      <form action="{% url "accounts:profile-update" object.user.id %}" method="post" enctype="multipart/form-data">
+        {% include "thoughts/form_template.html" %}
+        <button type="submit" class="btn btn-success btn-md">Save</button>
+      </form>
+
+    {% else %}
+      <div class="avatar">
+        <img src="{{ profile.avatar.url}}" alt="Avatar" class="{{ profile.gender}}">
+        <div class="username {{ profile.gender}}">{{ profile.user.username|default:"" }}</div>
+        <p>country: {{ profile.country|default:""}}</p>
+        <p>gender: {{ profile.gender|default:""}}</p>
+        <p>birthday: {{ profile.birthday|default:""}}</p>
+      </div>
+    {% endif %}
+
+  </div>
+  
+{% endblock %}

@@ -1,0 +1,196 @@
+body {
+  background-image: url("../images/bg.png"); }
+
+.header nav.navbar {
+  border-radius: 0px;
+  -webkit-box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69);
+  -moz-box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69);
+  box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69); }
+
+.main {
+  margin-top: 70px;
+  margin-bottom: 20px; }
+  .main .thoughts {
+    background-color: #fff;
+    padding: 30px 40px 20px;
+    border-radius: 3px;
+    border: 1px solid #d8d8d8; }
+    .main .thoughts h1 {
+      margin-top: 0;
+      text-align: center;
+      margin-bottom: 20px; }
+    .main .thoughts .thought {
+      margin-bottom: 25px;
+      color: black;
+      transition: all 0.2s;
+      padding: 20px 10px 15px;
+      border-radius: 5px;
+      -webkit-box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69);
+      -moz-box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69);
+      box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69); }
+      .main .thoughts .thought .thought-author-info .avatar-wrapper {
+        text-align: center; }
+        .main .thoughts .thought .thought-author-info .avatar-wrapper .avatar {
+          border-radius: 50%;
+          width: 75px;
+          height: 75px;
+          border: 3px solid #ff8b28;
+          text-align: center; }
+          .main .thoughts .thought .thought-author-info .avatar-wrapper .avatar.m {
+            border-color: #287eff; }
+          .main .thoughts .thought .thought-author-info .avatar-wrapper .avatar.f {
+            border-color: #ff28e4; }
+      .main .thoughts .thought .thought-author-info .nickname {
+        text-align: center;
+        font-weight: bold;
+        padding-top: 5px; }
+        .main .thoughts .thought .thought-author-info .nickname span {
+          color: #ff8b28; }
+          .main .thoughts .thought .thought-author-info .nickname span.f {
+            color: #ff28e4; }
+          .main .thoughts .thought .thought-author-info .nickname span.m {
+            color: #287eff; }
+      .main .thoughts .thought .thought-content {
+        color: black;
+        min-height: 95px; }
+      .main .thoughts .thought .date {
+        text-align: right;
+        padding: 10px 15px; }
+      .main .thoughts .thought-positive {
+        background-color: rgba(185, 255, 171, 0.76); }
+        .main .thoughts .thought-positive:hover {
+          background-color: #a8ef99; }
+      .main .thoughts .thought-negative {
+        background-color: rgba(255, 187, 198, 0.76); }
+        .main .thoughts .thought-negative:hover {
+          background-color: #ffa2b1; }
+      .main .thoughts .thought-neutral {
+        background-color: rgba(230, 230, 230, 0.76); }
+        .main .thoughts .thought-neutral:hover {
+          background-color: #d0cece; }
+    .main .thoughts a:hover {
+      text-decoration: none; }
+
+.thought-update {
+  background-color: #FFF;
+  padding: 20px 40px 80px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8; }
+  .thought-update .wrapper {
+    position: relative; }
+    .thought-update .wrapper form button {
+      position: absolute; }
+    .thought-update .wrapper .thought-delete-button {
+      margin-left: 100px; }
+
+.thought {
+  margin-bottom: 25px;
+  color: black;
+  transition: all 0.2s;
+  padding: 20px 10px 15px;
+  border-radius: 5px;
+  -webkit-box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69);
+  -moz-box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69);
+  box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69); }
+  .thought .thought-author-info .avatar-wrapper {
+    text-align: center; }
+    .thought .thought-author-info .avatar-wrapper .avatar {
+      border-radius: 50%;
+      width: 75px;
+      height: 75px;
+      border: 3px solid #ff8b28;
+      text-align: center; }
+      .thought .thought-author-info .avatar-wrapper .avatar.m {
+        border-color: #287eff; }
+      .thought .thought-author-info .avatar-wrapper .avatar.f {
+        border-color: #ff28e4; }
+  .thought .thought-author-info .nickname {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 5px; }
+    .thought .thought-author-info .nickname span {
+      color: #ff8b28; }
+      .thought .thought-author-info .nickname span.f {
+        color: #ff28e4; }
+      .thought .thought-author-info .nickname span.m {
+        color: #287eff; }
+  .thought .thought-content {
+    color: black;
+    min-height: 95px; }
+  .thought .date {
+    text-align: right;
+    padding: 10px 15px; }
+  .thought-positive {
+    background-color: rgba(185, 255, 171, 0.76); }
+  .thought-negative {
+    background-color: rgba(255, 187, 198, 0.76); }
+  .thought-neutral {
+    background-color: rgba(230, 230, 230, 0.76); }
+
+.comments {
+  background-color: #FFF;
+  padding: 20px 40px 20px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8; }
+  .comments .title {
+    font-size: 25px;
+    margin: 15px 0; }
+  .comments .comment {
+    padding: 10px 5px; }
+    .comments .comment .user-avatar {
+      float: left; }
+      .comments .comment .user-avatar .avatar {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        border: 3px solid #ff8b28; }
+        .comments .comment .user-avatar .avatar.m {
+          border-color: #287eff; }
+        .comments .comment .user-avatar .avatar.f {
+          border-color: #ff28e4; }
+    .comments .comment .content {
+      margin-left: 60px;
+      padding: 0px 15px; }
+      .comments .comment .content .header {
+        padding-top: 3px; }
+        .comments .comment .content .header .nickname {
+          font-weight: bold;
+          color: #ff8b28; }
+          .comments .comment .content .header .nickname.f {
+            color: #ff28e4; }
+          .comments .comment .content .header .nickname.m {
+            color: #287eff; }
+        .comments .comment .content .header .date {
+          font-size: 12px;
+          color: #767676;
+          padding-left: 10px; }
+        .comments .comment .content .header a:hover {
+          text-decoration: none; }
+
+.profile-page {
+  background-color: #FFF;
+  padding: 20px 40px 20px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8; }
+  .profile-page .avatar {
+    margin-top: 30px;
+    text-align: center; }
+    .profile-page .avatar img {
+      border-radius: 50%;
+      border: 5px solid #ff8b28;
+      width: 250px;
+      height: 250px; }
+      .profile-page .avatar img.f {
+        border-color: #ff28e4; }
+      .profile-page .avatar img.m {
+        border-color: #287eff; }
+    .profile-page .avatar .username {
+      color: #ff8b28;
+      font-weight: bold;
+      font-size: 18px; }
+      .profile-page .avatar .username.f {
+        color: #ff28e4; }
+      .profile-page .avatar .username.m {
+        color: #287eff; }
+
+/*# sourceMappingURL=style.css.map */
