@@ -82,12 +82,11 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'website',
-        'USER': 'postgres',
-        'PASSWORD': 'dimastii',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'gdima2395$thoughts',
+        'USER': 'gdima2395',
+        'PASSWORD': 'dimko335577',
+        'HOST': 'gdima2395.mysql.pythonanywhere-services.com',
     }
 }
 
