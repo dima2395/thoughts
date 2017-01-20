@@ -34,7 +34,7 @@ def profile_proxy(request):
 
 def profile_update(request, pk):
   profile = get_object_or_404(Profile, pk=pk)
-  form = ProfileForm(request.POST or None, instance=profile)
+  form = ProfileForm(request.POST or None, request.FILES or None, instance=profile)
 
   if profile.user == request.user:
 
