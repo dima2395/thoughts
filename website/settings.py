@@ -136,3 +136,11 @@ MEDIA_URL = '/media/'
 
 # Django-registration
 ACCOUNT_ACTIVATION_DAYS = 7
+
+
+#gmail SMTP
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "gdima2395@gmail.com"
+EMAIL_HOST_PASSWORD = 'otvcrtjaveqkvfvy'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
