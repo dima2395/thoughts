@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import extras
 from .models import Profile
 
 class ProfileForm(forms.ModelForm):
