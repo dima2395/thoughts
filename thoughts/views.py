@@ -9,8 +9,19 @@ from django.contrib import messages
 
 
 def index(request):
-  thoughts = Thought.objects.all().order_by('-date')
-  return render(request, 'thoughts/index.html', {'thoughts': thoughts})
+  step = 5
+
+  if request.is_ajax(): # ajax call
+    start = int(request.GET.get('start', None))
+    end = start + step
+    thoughts = get_list_or_404(Thought.objects.all().order_by('-date')[start:end])
+    return render(request, 'thoughts/thought.html', {'thoughts': thoughts})
+
+  else:  # index page 
+    start = 0
+    end = 3
+    thoughts = Thought.objects.all().order_by('-date')[start:end]
+    return render(request, 'thoughts/index.html', {'thoughts': thoughts, 'start_from': end, 'step': step})
 
 
 

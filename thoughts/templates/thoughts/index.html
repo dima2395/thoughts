@@ -5,36 +5,79 @@
 
 {% block main %}
 
-  <div class="thoughts">
-    <h1>Last Thinks</h1>
-    {% for thought in thoughts %}
-        <div class="thought thought-{{ thought.status }}">
-          <div class="row">
-            <div class="thought-author-info col-md-2">
-              <div class="avatar-wrapper">
-                <a href="{% url "accounts:profile-detail" thought.user.id %}">
-                  <img src="{{ thought.user.profile.avatar.url }}" alt="Avatar" class="avatar {{ thought.user.profile.gender }}">
-                </a>
+  <div class="thoughts-wrapper">
+    <div class="thoughts" id="js-thoughts" data-ajax-url="{% url "thoughts:index" %}" data-start-from="{{ start_from }}" data-step="{{ step }}">
+      <h1>Last Thinks</h1>
+
+      {% for thought in thoughts %}
+          <div class="thought thought-{{ thought.status }}">
+            <div class="row">
+              <div class="thought-author-info col-md-2">
+                <div class="avatar-wrapper">
+                  <a href="{% url "accounts:profile-detail" thought.user.id %}">
+                    <img src="{{ thought.user.profile.avatar.url }}" alt="Avatar" class="avatar {{ thought.user.profile.gender }}">
+                  </a>
+                </div>
+                <div class="nickname">
+                  <a href="{% url "accounts:profile-detail" thought.user.id %}">
+                    <span class="{{ thought.user.profile.gender }}">{{ thought.user.username }}</span>
+                  </a>
+                </div>
               </div>
-              <div class="nickname">
-                <a href="{% url "accounts:profile-detail" thought.user.id %}">
-                  <span class="{{ thought.user.profile.gender }}">{{ thought.user.username }}</span>
-                </a>
-              </div>
+
+              <a href="{% url "thoughts:detail" thought.id %}">
+                <div class="thought-content col-md-10">
+                  <p>{{ thought.text }}</p>
+                </div>
+              </a>
             </div>
 
-            <a href="{% url "thoughts:detail" thought.id %}">
-              <div class="thought-content col-md-10">
-                <p>{{ thought.text }}</p>
-              </div>
-            </a>
+            <div class="row">
+              <div class="date col-md-12">{{ thought.date|naturaltime }}</div>
+            </div>
           </div>
+      {% endfor %}
 
-          <div class="row">
-            <div class="date col-md-12">{{ thought.date|naturaltime }}</div>
-          </div>
-        </div>
-    {% endfor %}
+    </div>
+    <button id="js-load-more-thinks" class="btn btn-success center-block">Load more</button>
   </div>
   
+  
+  
+{% endblock %}
+
+{% block javascript %}
+  <script>
+    var container = $('#js-thoughts');
+    var start = parseInt(container.data('startFrom'));
+    var ajax_url = container.data('ajaxUrl');
+    var step = parseInt(container.data('step'));
+
+    $('#js-load-more-thinks').on('click', function(){
+      $.ajax({
+        url: ajax_url,
+        data: {
+          'start': start,
+        },
+        dataType: 'html',
+        success: function(data) {
+          container.append(data);
+          start += step;
+          $.ajax({ // ajax call for deleting Load More button, when no posts are available, 2 ajax calls bad thing :(
+            url: ajax_url,
+            data: {
+              'start': start,
+            },
+            dataType: 'html',
+            error: function(jqXHR, textStatus, errorThrown) {
+              if (jqXHR.status == 404) {
+                $('#js-load-more-thinks').hide();
+              }
+            },
+          });
+        },
+      });
+
+    });
+  </script>
 {% endblock %}

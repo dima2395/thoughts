@@ -10,16 +10,16 @@ body {
 .main {
   margin-top: 70px;
   margin-bottom: 20px; }
-  .main .thoughts {
+  .main .thoughts-wrapper {
     background-color: #fff;
     padding: 30px 40px 20px;
     border-radius: 3px;
     border: 1px solid #d8d8d8; }
-    .main .thoughts h1 {
+    .main .thoughts-wrapper h1 {
       margin-top: 0;
       text-align: center;
       margin-bottom: 20px; }
-    .main .thoughts .thought {
+    .main .thoughts-wrapper .thought {
       margin-bottom: 25px;
       color: black;
       transition: all 0.2s;
@@ -28,47 +28,47 @@ body {
       -webkit-box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69);
       -moz-box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69);
       box-shadow: 8px 8px 11px -5px rgba(97, 94, 97, 0.69); }
-      .main .thoughts .thought .thought-author-info .avatar-wrapper {
+      .main .thoughts-wrapper .thought .thought-author-info .avatar-wrapper {
         text-align: center; }
-        .main .thoughts .thought .thought-author-info .avatar-wrapper .avatar {
+        .main .thoughts-wrapper .thought .thought-author-info .avatar-wrapper .avatar {
           border-radius: 50%;
           width: 75px;
           height: 75px;
           border: 3px solid #ff8b28;
           text-align: center; }
-          .main .thoughts .thought .thought-author-info .avatar-wrapper .avatar.m {
+          .main .thoughts-wrapper .thought .thought-author-info .avatar-wrapper .avatar.m {
             border-color: #287eff; }
-          .main .thoughts .thought .thought-author-info .avatar-wrapper .avatar.f {
+          .main .thoughts-wrapper .thought .thought-author-info .avatar-wrapper .avatar.f {
             border-color: #ff28e4; }
-      .main .thoughts .thought .thought-author-info .nickname {
+      .main .thoughts-wrapper .thought .thought-author-info .nickname {
         text-align: center;
         font-weight: bold;
         padding-top: 5px; }
-        .main .thoughts .thought .thought-author-info .nickname span {
+        .main .thoughts-wrapper .thought .thought-author-info .nickname span {
           color: #ff8b28; }
-          .main .thoughts .thought .thought-author-info .nickname span.f {
+          .main .thoughts-wrapper .thought .thought-author-info .nickname span.f {
             color: #ff28e4; }
-          .main .thoughts .thought .thought-author-info .nickname span.m {
+          .main .thoughts-wrapper .thought .thought-author-info .nickname span.m {
             color: #287eff; }
-      .main .thoughts .thought .thought-content {
+      .main .thoughts-wrapper .thought .thought-content {
         color: black;
         min-height: 95px; }
-      .main .thoughts .thought .date {
+      .main .thoughts-wrapper .thought .date {
         text-align: right;
         padding: 10px 15px; }
-      .main .thoughts .thought-positive {
+      .main .thoughts-wrapper .thought-positive {
         background-color: rgba(185, 255, 171, 0.76); }
-        .main .thoughts .thought-positive:hover {
+        .main .thoughts-wrapper .thought-positive:hover {
           background-color: #a8ef99; }
-      .main .thoughts .thought-negative {
+      .main .thoughts-wrapper .thought-negative {
         background-color: rgba(255, 187, 198, 0.76); }
-        .main .thoughts .thought-negative:hover {
+        .main .thoughts-wrapper .thought-negative:hover {
           background-color: #ffa2b1; }
-      .main .thoughts .thought-neutral {
+      .main .thoughts-wrapper .thought-neutral {
         background-color: rgba(230, 230, 230, 0.76); }
-        .main .thoughts .thought-neutral:hover {
+        .main .thoughts-wrapper .thought-neutral:hover {
           background-color: #d0cece; }
-    .main .thoughts a:hover {
+    .main .thoughts-wrapper a:hover {
       text-decoration: none; }
 
 .thought-update {

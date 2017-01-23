@@ -1,0 +1,29 @@
+{% load humanize %}
+{% for thought in thoughts %}
+  <div class="thought thought-{{ thought.status }}">
+    <div class="row">
+      <div class="thought-author-info col-md-2">
+        <div class="avatar-wrapper">
+          <a href="{% url "accounts:profile-detail" thought.user.id %}">
+            <img src="{{ thought.user.profile.avatar.url }}" alt="Avatar" class="avatar {{ thought.user.profile.gender }}">
+          </a>
+        </div>
+        <div class="nickname">
+          <a href="{% url "accounts:profile-detail" thought.user.id %}">
+            <span class="{{ thought.user.profile.gender }}">{{ thought.user.username }}</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="{% url "thoughts:detail" thought.id %}">
+        <div class="thought-content col-md-10">
+          <p>{{ thought.text }}</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="row">
+      <div class="date col-md-12">{{ thought.date|naturaltime }}</div>
+    </div>
+  </div>
+{% endfor %}
