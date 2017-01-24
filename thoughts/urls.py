@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^add/$', login_required(views.create), name='thought-add'),
     url(r'^edit/(?P<pk>[0-9]+)/$', login_required(views.update), name='thought-update'),
     url(r'^delete/(?P<pk>[0-9]+)/$', login_required(views.delete), name='thought-delete'),
+    url(r'^statistics/$', views.statistics, name='statistics'),
 ]

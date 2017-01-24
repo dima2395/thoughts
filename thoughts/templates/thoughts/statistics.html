@@ -1,0 +1,58 @@
+{% extends "thoughts/base.html" %}
+
+
+{% block title %} Statistics {% endblock title %}
+
+
+{% block main %}
+  <div class="statistics">
+    <h1><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Statistics</h1>
+    <div class="chart-wrapper">
+      <h2>Male / Female Activity</h2>
+      <canvas id ="genderChart" height="300" width="300"></canvas>
+    </div>
+
+    <div class="chart-wrapper">
+      <h2>Types of thinks</h2>
+      <canvas id ="statusChart" height="300" width="300"></canvas>
+    </div>
+    
+  </div>
+{% endblock main %}
+
+
+
+{% block javascript %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script>
+    var gc = $('#genderChart'); // gc - gender chart
+    var gc_labels = {{ genders_data.labels|safe }}
+    var gc_data = {{ genders_data.values|safe }}
+    var gc_bgcolors = {{ genders_data.bgcolors|safe}}
+    var genderChart = new Chart(gc, {
+      type: 'pie',
+      data: {
+        labels: gc_labels,
+        datasets: [{
+          data: gc_data,
+          backgroundColor: gc_bgcolors,
+        }]
+      }, //end data
+    })
+
+    var sc = $('#statusChart'); // sc - status chart
+    var sc_labels = {{ statuses_data.labels|safe }}
+    var sc_data = {{ statuses_data.values|safe }}
+    var sc_bgcolors = {{ statuses_data.bgcolors|safe }}
+    var statusChart = new Chart(sc, {
+      type: 'pie',
+      data: {
+        labels: sc_labels,
+        datasets: [{
+          data: sc_data,
+          backgroundColor: sc_bgcolors,
+        }]
+      }, //end data
+    })
+  </script>
+{% endblock javascript %}

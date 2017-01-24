@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Thought
 from .forms import CommentForm, ThoughtForm
 from django.contrib import messages
-
+from django.db.models import Count
 
 def index(request):
   step = 5
@@ -105,5 +105,41 @@ def delete(request, pk):
   else:
     return http.HttpResponseRedirect(reverse_lazy('thoughts:index'))
 
+
+
+def statistics(request):
+
+  statuses = Thought.objects.values('status').annotate(count=Count('id'))
+  statuses_data = {}
+  statuses_data['labels'] = []
+  statuses_data['values'] = []
+  statuses_data['bgcolors'] = []
+
+  for status in statuses:
+    statuses_data['labels'].append(status['status'].capitalize())
+    statuses_data['values'].append(status['count'])
+    if status['status'] == 'neutral':
+      statuses_data['bgcolors'].append('rgba(230, 230, 230, 0.76)')
+    elif status['status'] == 'positive':
+      statuses_data['bgcolors'].append('rgba(185, 255, 171, 0.76)')
+    elif status['status'] == 'negative':
+      statuses_data['bgcolors'].append('rgba(255, 187, 198, 0.76)')
+
+  genders = Thought.objects.values('user__profile__gender').annotate(count=Count('id'))
+  genders_data = {}
+  genders_data['labels'] = []
+  genders_data['values'] = []
+  genders_data['bgcolors'] = []
+  for gender in genders:
+    if gender['user__profile__gender'] == 'm':
+      genders_data['labels'].append('Male')
+      genders_data['bgcolors'].append('#287eff')
+    elif gender['user__profile__gender'] == 'f':
+      genders_data['labels'].append('Female')
+      genders_data['bgcolors'].append('#ff28e4')
+    genders_data['values'].append(gender['count'])
+
+
+  return render(request, 'thoughts/statistics.html', {'statuses_data': statuses_data, 'genders_data': genders_data})
 
 
