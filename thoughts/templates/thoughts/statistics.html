@@ -35,6 +35,21 @@
           backgroundColor: {{ genders_data.bgcolors|safe}},
         }]
       }, //end data
+      options: {
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              var dataset = data.datasets[tooltipItem.datasetIndex];
+              var total = dataset.data.reduce(function(previous, current){
+                return previous + current;
+              });
+              var currentValue = dataset.data[tooltipItem.index];
+              var percentage = ((currentValue / total) * 100).toFixed(2);
+              return percentage + '% (' + currentValue + ')';
+            }
+          }
+        }
+      }
     })
 
     var sc = $('#statusChart'); // sc - status chart
@@ -46,7 +61,22 @@
           data: {{ statuses_data.values|safe }},
           backgroundColor: {{ statuses_data.bgcolors|safe }},
         }]
-      }, //end data
+      },
+      options: {
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              var dataset = data.datasets[tooltipItem.datasetIndex];
+              var total = dataset.data.reduce(function(previous, current){
+                return previous + current;
+              });
+              var currentValue = dataset.data[tooltipItem.index];
+              var percentage = ((currentValue / total) * 100).toFixed(2);
+              return percentage + '% (' + currentValue + ')';
+            }
+          }
+        }
+      } //end data
     })
   </script>
 {% endblock javascript %}
