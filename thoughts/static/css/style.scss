@@ -100,9 +100,13 @@ body {
         min-height: 95px;
       }
 
-      .date {
-        text-align: right;
-        padding: 10px 15px;
+      .date, .comments-quantity {
+        font-size: 13px;
+        color: #313131;
+        padding: 10px 15px 0;
+        float: right;
+        font-family: 'Arial';
+        font-style: italic;
       }
 
       &-positive {
@@ -213,9 +217,13 @@ body {
     min-height: 95px;
   }
 
-  .date {
-    text-align: right;
-    padding: 10px 15px;
+  .date, .comments-quantity {
+    font-size: 13px;
+    color: #313131;
+    padding: 10px 15px 0;
+    float: right;
+    font-family: 'Arial';
+    font-style: italic;
   }
 
   &-positive {

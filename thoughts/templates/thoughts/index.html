@@ -33,7 +33,8 @@
             </div>
 
             <div class="row">
-              <div class="date col-md-12">{{ thought.date|naturaltime }}</div>
+              <div class="date">{{ thought.date|naturaltime }}</div>
+              <div class="comments-quantity">Comments: ({{ thought.comment_set.count}})</div>
             </div>
           </div>
       {% endfor %}

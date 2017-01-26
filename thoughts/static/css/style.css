@@ -61,9 +61,13 @@ body {
       .main .thoughts-wrapper .thought .thought-content {
         color: black;
         min-height: 95px; }
-      .main .thoughts-wrapper .thought .date {
-        text-align: right;
-        padding: 10px 15px; }
+      .main .thoughts-wrapper .thought .date, .main .thoughts-wrapper .thought .comments-quantity {
+        font-size: 13px;
+        color: #313131;
+        padding: 10px 15px 0;
+        float: right;
+        font-family: 'Arial';
+        font-style: italic; }
       .main .thoughts-wrapper .thought-positive {
         background-color: rgba(185, 255, 171, 0.76); }
         .main .thoughts-wrapper .thought-positive:hover {
@@ -125,9 +129,13 @@ body {
   .thought .thought-content {
     color: black;
     min-height: 95px; }
-  .thought .date {
-    text-align: right;
-    padding: 10px 15px; }
+  .thought .date, .thought .comments-quantity {
+    font-size: 13px;
+    color: #313131;
+    padding: 10px 15px 0;
+    float: right;
+    font-family: 'Arial';
+    font-style: italic; }
   .thought-positive {
     background-color: rgba(185, 255, 171, 0.76); }
   .thought-negative {
