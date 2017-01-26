@@ -1,4 +1,5 @@
 venv
 *.pyc
 static
+media
 .env
