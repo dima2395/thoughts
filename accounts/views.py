@@ -48,7 +48,7 @@ def profile_update(request, pk):
       form.save()
       return http.HttpResponseRedirect(profile.get_absolute_url())
 
-    return render(request, 'thoughts/profile.html', {'form': form, 'object': profile})
+    return render(request, 'thoughts/profile.html', {'form': form, 'profileUpdate': profile})
   else:
     return http.HttpResponseRedirect(reverse_lazy('thoughts:index'))
 

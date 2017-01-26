@@ -191,6 +191,8 @@ body {
     border-top-left-radius: 3px;
     padding-top: 10px;
     padding-bottom: 10px; }
+  .profile-page .profile-update {
+    padding: 20px 30px; }
   .profile-page .avatar {
     margin-top: 30px;
     text-align: center; }
