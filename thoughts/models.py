@@ -15,8 +15,8 @@ class Thought(models.Model):
         ('negative', 'Negative'),
         ('positive', 'Positive'),
         ('neutral', 'Neutral')
-      ),
-      default = 'neutral'
+      )
+      
   )
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
