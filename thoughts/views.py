@@ -19,7 +19,7 @@ def index(request):
 
   else:  # index page 
     start = 0
-    end = 3
+    end = 5
     thoughts = Thought.objects.all().order_by('-date')[start:end]
     return render(request, 'thoughts/index.html', {'thoughts': thoughts, 'start_from': end, 'step': step})
 

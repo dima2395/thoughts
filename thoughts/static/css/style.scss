@@ -1,6 +1,7 @@
 $female-color: #ff28e4;
 $male-color: #287eff;
 $unknown-color: #ff8b28;
+$page-border: #323a54; //#739ad6
 
 
 
@@ -25,14 +26,25 @@ body {
 
   .thoughts-wrapper {
     background-color: #fff;
-    padding: 30px 40px 20px;
+    padding: 0px 0px 20px;
     border-radius: 3px;
     border: 1px solid #d8d8d8;
+    // border-bottom: 62px solid $page-border;
 
     h1 {
-      margin-top: 0;
       text-align: center;
-      margin-bottom: 20px;
+      margin: 0;
+      background-color: $page-border;
+      color: #fff;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .thoughts {
+      padding: 10px 30px;
     }
 
     .thought {
@@ -290,13 +302,13 @@ body {
   padding: 0px 0px 20px;
   border-radius: 3px;
   border: 1px solid #d8d8d8;
-  border-bottom: 62px solid #567ab1;
+  border-bottom: 62px solid $page-border;
   min-height: 800px;
 
   h1 {
     text-align: center;
     margin: 0;
-    background-color: #567ab1;
+    background-color: $page-border;
     color: #fff;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
@@ -347,12 +359,12 @@ body {
   padding: 0px 0px 20px;
   border-radius: 3px;
   border: 1px solid #d8d8d8;
-  border-bottom: 62px solid #567ab1;
+  border-bottom: 62px solid $page-border;
 
   h1 {
     text-align: center;
     margin: 0;
-    background-color: #567ab1;
+    background-color: $page-border;
     color: #fff;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
@@ -360,7 +372,7 @@ body {
     padding-bottom: 10px;
   }
   .chart-wrapper {
-    width: 300px;
+    width: 400px;
     margin: 40px auto;
     text-align: center;
     h2 {

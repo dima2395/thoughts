@@ -26,10 +26,10 @@ SECRET_KEY = '(b7^ukc%p1^6*jecvn@2!3es7lcq6twc(g_w9whx%9(7-ce%3m'
 DEBUG = True
 
 #Hosted
-ALLOWED_HOSTS = ['gdima2395.pythonanywhere.com']
+# ALLOWED_HOSTS = ['gdima2395.pythonanywhere.com']
 
 #Local
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -84,27 +84,27 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 # Hosted database settings
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'gdima2395$thoughts',
-        'USER': 'gdima2395',
-        'PASSWORD': 'dimko335577',
-        'HOST': 'gdima2395.mysql.pythonanywhere-services.com',
-    }
-}
-
-# Local database settings
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'website',
-#         'USER': 'postgres',
-#         'PASSWORD': 'dimastii',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'gdima2395$thoughts',
+#         'USER': 'gdima2395',
+#         'PASSWORD': 'dimko335577',
+#         'HOST': 'gdima2395.mysql.pythonanywhere-services.com',
 #     }
 # }
+
+# Local database settings
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'website',
+        'USER': 'postgres',
+        'PASSWORD': 'dimastii',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
