@@ -349,6 +349,24 @@ body {
       }
     }
   }
+  .thoughts-history {
+    padding: 30px;
+    .thought {
+      position: relative;
+      .thought-content {
+        p {
+          padding-right: 92px;
+        }
+        
+      }
+      .thought-edit {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    }
+    
+  }
 }
 
 

@@ -26,31 +26,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script>
     var gc = $('#genderChart'); // gc - gender chart
-    var gc_labels = {{ genders_data.labels|safe }}
-    var gc_data = {{ genders_data.values|safe }}
-    var gc_bgcolors = {{ genders_data.bgcolors|safe}}
     var genderChart = new Chart(gc, {
       type: 'pie',
       data: {
-        labels: gc_labels,
+        labels: {{ genders_data.labels|safe }},
         datasets: [{
-          data: gc_data,
-          backgroundColor: gc_bgcolors,
+          data: {{ genders_data.values|safe }},
+          backgroundColor: {{ genders_data.bgcolors|safe}},
         }]
       }, //end data
     })
 
     var sc = $('#statusChart'); // sc - status chart
-    var sc_labels = {{ statuses_data.labels|safe }}
-    var sc_data = {{ statuses_data.values|safe }}
-    var sc_bgcolors = {{ statuses_data.bgcolors|safe }}
     var statusChart = new Chart(sc, {
       type: 'pie',
       data: {
-        labels: sc_labels,
+        labels: {{ statuses_data.labels|safe }},
         datasets: [{
-          data: sc_data,
-          backgroundColor: sc_bgcolors,
+          data: {{ statuses_data.values|safe }},
+          backgroundColor: {{ statuses_data.bgcolors|safe }},
         }]
       }, //end data
     })

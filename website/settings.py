@@ -29,7 +29,7 @@ DEBUG = True
 # ALLOWED_HOSTS = ['gdima2395.pythonanywhere.com']
 
 #Local
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
