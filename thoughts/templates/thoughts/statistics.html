@@ -93,7 +93,7 @@
         labels: {{ activity_data.labels|safe }},
         datasets: [
           {
-            label: "Thought per day",
+            label: "Thoughts per day",
             fill: true,
             lineTension: 0,
             backgroundColor: "rgba(75,192,192,0.4)",
@@ -120,7 +120,8 @@
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    stepSize: 1,
                 }
             }]
         }

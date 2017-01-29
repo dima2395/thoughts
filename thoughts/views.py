@@ -145,16 +145,24 @@ def statistics(request):
 
 
   #activityChart
-  week_ago = datetime.now().date() - timedelta(days=7)
+  today = datetime.now().date()
+  week_ago = today - timedelta(days=6)
   week_activity = Thought.objects.filter(date__gte=week_ago).extra({'published': 'date(date)'}).values('published').annotate(count=Count('id'))
+  # print(week_ago)
   activity_data = {}
   activity_data['labels'] = []
   activity_data['values'] = []
 
-  for day in week_activity:
-    activity_data['labels'].append(day['published'].strftime('%b %d'))
-    activity_data['values'].append(day['count'])
+  dates = [today - timedelta(days=x) for x in range(0,7)] #list of dates (today - 7 days)
+  published = {day['published']:day['count'] for day in week_activity} #dict key=date value=count of thoughts per date
 
+  for date in reversed(dates):
+    if date in published:
+      activity_data['labels'].append(date.strftime('%b %d'))
+      activity_data['values'].append(published[date])
+    else:
+      activity_data['labels'].append(date.strftime('%b %d'))
+      activity_data['values'].append(0)
 
 
   return render(request, 'thoughts/statistics.html', {'statuses_data': statuses_data, 'genders_data': genders_data, 'activity_data': activity_data})

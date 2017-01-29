@@ -305,8 +305,8 @@ body {
     padding-top: 10px;
     padding-bottom: 10px; }
   .statistics-page .chart-wrapper {
-    width: 400px;
-    margin: 40px auto;
+    width: 500px;
+    margin: 55px auto;
     text-align: center; }
     .statistics-page .chart-wrapper h2 {
       color: #545353; }
