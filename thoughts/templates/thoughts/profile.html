@@ -26,12 +26,20 @@
         
 
     {% else %}
-      <div class="avatar">
-        <img src="{{ profile.avatar.url}}" alt="Avatar" class="{{ profile.gender}}">
-        <div class="username {{ profile.gender}}">{{ profile.user.username|default:"" }}</div>
+      <div class="row">
+        <div class="avatar col-md-6">
+          <img src="{{ profile.avatar.url}}" alt="Avatar" class="{{ profile.gender}}">
+          <div class="username {{ profile.gender}}">{{ profile.user.username|default:"" }}</div>
+        </div>
+        <div class="statistics col-md-6">
+          <div class="chart-wrapper">
+            <canvas id="mindsetChart"></canvas>
+          </div>
+        </div>
       </div>
       <div class="thoughts-history">
         <h2>History</h2>
+          {% if thoughts.count %}
             {% for thought in thoughts %}
               <div class="thought thought-{{ thought.status }}">
                 <div class="row">
@@ -70,10 +78,52 @@
                 
               </div>
             {% endfor %}
+          {% else %}
+            <div class="alert alert-info" role="alert">
+              <b>Info:</b> Here is no thoughts yet, but you can post it right now -> <a href="{% url 'thoughts:thought-add' %}">link</a>
+            </div>
+          {% endif %}
+            
       </div>
       
     {% endif %}
 
   </div>
   
-{% endblock %}
+{% endblock main %}
+
+{% block javascript %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script>
+    var mc = $('#mindsetChart'); // gc - mindsetChart
+    var mindsetChart = new Chart(mc, {
+      type: 'pie',
+      data: {
+        labels: {{ statuses_data.labels|safe }},
+        datasets: [{
+          data: {{ statuses_data.values|safe }},
+          backgroundColor: {{ statuses_data.bgcolors|safe }},
+          label: "Your mindset",
+        }]
+      }, //end data
+      options: {
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              var dataset = data.datasets[tooltipItem.datasetIndex];
+              var total = dataset.data.reduce(function(previous, current){
+                return previous + current;
+              });
+              var currentValue = dataset.data[tooltipItem.index];
+              var percentage = ((currentValue / total) * 100).toFixed(2);
+              return percentage + '% (' + currentValue + ')';
+            }
+          }
+        },
+        legend: {
+          position: 'bottom',
+        }
+      }
+    })
+  </script>
+{% endblock javascript %}

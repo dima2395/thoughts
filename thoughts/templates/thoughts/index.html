@@ -6,7 +6,7 @@
 {% block main %}
 
   <div class="thoughts-wrapper">
-    <h1>Last Thinks</h1>
+    <h1>Last Thoughts</h1>
     <div class="thoughts" id="js-thoughts" data-ajax-url="{% url "thoughts:index" %}" data-start-from="{{ start_from }}" data-step="{{ step }}">
 
       {% for thought in thoughts %}

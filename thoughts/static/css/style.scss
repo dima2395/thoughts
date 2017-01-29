@@ -335,8 +335,8 @@ body {
     img {
       border-radius: 50%;
       border: 5px solid $unknown-color;
-      width: 250px;
-      height: 250px;
+      width: 300px;
+      height: 300px;
 
       &.f {
             border-color: $female-color;
@@ -361,8 +361,19 @@ body {
       }
     }
   }
+
+  .statistics {
+    margin-top: 30px;
+    .chart-wrapper {
+      margin: 0 auto;
+      height: 330px;
+      width: 330px;
+    }
+  }
+
   .thoughts-history {
     padding: 30px;
+
     .thought {
       position: relative;
       .thought-content {
@@ -377,6 +388,13 @@ body {
         right: 10px;
       }
     }
+
+    .alert {
+      a {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
     
   }
 }
@@ -384,7 +402,7 @@ body {
 
 //Statistics page
 
-.statistics {
+.statistics-page {
   background-color: #fff;
   padding: 0px 0px 20px;
   border-radius: 3px;

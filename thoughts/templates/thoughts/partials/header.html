@@ -3,7 +3,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="{% url "thoughts:index" %}" class="navbar-brand">Thinks</a>
+        <a href="{% url "thoughts:index" %}" class="navbar-brand">Thoughts</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -15,7 +15,7 @@
           {% if user.is_authenticated %}
             <li>
               <a href="{% url 'thoughts:thought-add' %}">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new think
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new thought
               </a>
             </li>
             <li>
