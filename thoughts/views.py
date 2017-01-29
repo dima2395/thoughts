@@ -7,6 +7,7 @@ from .models import Thought
 from .forms import CommentForm, ThoughtForm
 from django.contrib import messages
 from django.db.models import Count
+from datetime import datetime, timedelta
 
 def index(request):
   step = 5
@@ -109,6 +110,7 @@ def delete(request, pk):
 
 def statistics(request):
 
+  #statusChart
   statuses = Thought.objects.values('status').annotate(count=Count('id'))
   statuses_data = {}
   statuses_data['labels'] = []
@@ -125,11 +127,13 @@ def statistics(request):
     elif status['status'] == 'negative':
       statuses_data['bgcolors'].append('rgba(255, 187, 198, 0.76)')
 
+  #genderChart
   genders = Thought.objects.values('user__profile__gender').annotate(count=Count('id'))
   genders_data = {}
   genders_data['labels'] = []
   genders_data['values'] = []
   genders_data['bgcolors'] = []
+
   for gender in genders:
     if gender['user__profile__gender'] == 'm':
       genders_data['labels'].append('Male')
@@ -140,6 +144,17 @@ def statistics(request):
     genders_data['values'].append(gender['count'])
 
 
-  return render(request, 'thoughts/statistics.html', {'statuses_data': statuses_data, 'genders_data': genders_data})
+  #activityChart
+  week_ago = datetime.now().date() - timedelta(days=7)
+  week_activity = Thought.objects.filter(date__gte=week_ago).extra({'published': 'date(date)'}).values('published').annotate(count=Count('id'))
+  activity_data = {}
+  activity_data['labels'] = []
+  activity_data['values'] = []
+
+  for day in week_activity:
+    activity_data['labels'].append(day['published'].strftime('%b %d'))
+    activity_data['values'].append(day['count'])
 
 
+
+  return render(request, 'thoughts/statistics.html', {'statuses_data': statuses_data, 'genders_data': genders_data, 'activity_data': activity_data})
