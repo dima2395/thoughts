@@ -25,12 +25,20 @@
             </li>
             <li>
               <a href="{% url 'auth_logout' %}?next={% url 'thoughts:index' %}">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span> {% trans "Log out" %}
+                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {% trans "Log out" %}
               </a>
             </li>
           {% else %}
-            <li><a href="{% url 'registration_register' %}">{% trans "Register" %}</a></li>
-            <li><a href="{% url 'auth_login' %}">{% trans "Login" %}</a></li>
+            <li>
+              <a href="{% url 'registration_register' %}">
+                <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> {% trans "Register" %}
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'auth_login' %}">
+                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> {% trans "Login" %}
+              </a>
+            </li>
           {% endif %}
         </ul>
       </div>
