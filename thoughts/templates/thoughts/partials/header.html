@@ -24,7 +24,7 @@
               </a>
             </li>
             <li>
-              <a href="{% url 'auth_logout' %}">
+              <a href="{% url 'auth_logout' %}?next={% url 'thoughts:index' %}">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span> {% trans "Log out" %}
               </a>
             </li>
