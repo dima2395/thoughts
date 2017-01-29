@@ -2,9 +2,13 @@
 {% load i18n %}
 
 {% block main %}
-<form method="post" action=".">
-  {% include "thoughts/form_template.html" %}
 
-  <input type="submit" value="{% trans 'Submit' %}" />
-</form>
-{% endblock %}
+  <div class="register-page">
+  <h1>Registration</h1>
+    <form method="post" action="." class="register-form">
+      {% include "thoughts/form_template.html" %}
+      <input type="submit" value="{% trans 'Register' %}" class="btn btn-success" />
+    </form>
+  </div>
+
+{% endblock main %}

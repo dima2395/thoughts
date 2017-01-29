@@ -18,70 +18,268 @@ body {
   }
 }
 
-
-// MAIN START *********************************************************************
 .main {
   margin-top: 70px;
   margin-bottom: 20px;
+}
 
-  .thoughts-wrapper {
-    background-color: #fff;
-    padding: 0px 0px 20px;
-    border-radius: 3px;
-    border: 1px solid #d8d8d8;
-    // border-bottom: 62px solid $page-border;
 
-    h1 {
-      text-align: center;
-      margin: 0;
-      background-color: $page-border;
-      color: #fff;
-      border-top-right-radius: 3px;
-      border-top-left-radius: 3px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-    }
+//START thoughts page
+.thoughts-page {
+  background-color: #fff;
+  padding: 0px 0px 20px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+  // border-bottom: 62px solid $page-border;
 
-    .thoughts {
-      padding: 10px 30px;
-    }
+  h1 {
+    text-align: center;
+    margin: 0;
+    background-color: $page-border;
+    color: #fff;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
 
-    .thought {
-      margin-bottom: 25px;
-      color: black;
-      transition: all 0.2s;
-      padding: 20px 10px 15px;
-      border-radius: 5px;
-      -webkit-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
-      -moz-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
-      box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+  .thoughts {
+    padding: 10px 30px;
+  }
 
-      .thought-author-info {
-        .avatar-wrapper {
+  .thought {
+    margin-bottom: 25px;
+    color: black;
+    transition: all 0.2s;
+    padding: 20px 10px 15px;
+    border-radius: 5px;
+    -webkit-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+    -moz-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+    box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+
+    .thought-author-info {
+      .avatar-wrapper {
+        text-align: center;
+        .avatar {
+          border-radius:50%;
+          width: 75px;
+          height: 75px;
+          border: 3px solid $unknown-color;
           text-align: center;
-          .avatar {
-            border-radius:50%;
-            width: 75px;
-            height: 75px;
-            border: 3px solid $unknown-color;
-            text-align: center;
 
-            &.m {
-              border-color: $male-color;
-            }
+          &.m {
+            border-color: $male-color;
+          }
 
-            &.f {
-              border-color: $female-color;
-            }
+          &.f {
+            border-color: $female-color;
           }
         }
+      }
 
-        .nickname {
+      .nickname {
+        text-align: center;
+        font-weight: bold;
+        padding-top: 5px;
+        span {
+          color: $unknown-color;
+
+          &.f {
+            color: $female-color;
+          }
+
+          &.m {
+            color: $male-color;
+          }
+        }
+      }
+    }
+
+    .thought-content {
+      color: black;
+      min-height: 95px;
+    }
+
+    .date, .comments-quantity {
+      font-size: 13px;
+      color: #313131;
+      padding: 10px 15px 0;
+      float: right;
+      font-family: 'Arial';
+      font-style: italic;
+    }
+
+    &-positive {
+      background-color: rgba(185, 255, 171, 0.76);
+
+      &:hover {
+        background-color: rgba(168, 239, 153, 1);
+      }
+    }
+
+    &-negative {
+      background-color: rgba(255, 187, 198, 0.76);
+
+      &:hover {
+        background-color: rgba(255, 162, 177, 1);
+      }
+    }
+
+    &-neutral {
+      background-color: rgba(230, 230, 230, 0.76);
+
+      &:hover {
+        background-color: rgba(208, 206, 206, 1);
+      }
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+//END thoughts page
+
+
+ // update/delete page buttons(css sram ;DD)
+.thought-update-page {
+  background-color: #FFF;
+  padding: 20px 40px 80px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+
+  .wrapper {
+    position: relative;
+
+    form button {
+      position: absolute;
+    }
+    .thought-delete-button {
+      margin-left: 100px;
+    }
+  }
+}
+
+
+
+//START detail-page
+.detail-page {
+  .thought {
+    margin-bottom: 25px;
+    color: black;
+    transition: all 0.2s;
+    padding: 20px 10px 15px;
+    border-radius: 5px;
+    -webkit-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+    -moz-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+    box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+
+    .thought-author-info {
+      .avatar-wrapper {
+        text-align: center;
+        .avatar {
+          border-radius:50%;
+          width: 75px;
+          height: 75px;
+          border: 3px solid $unknown-color;
           text-align: center;
-          font-weight: bold;
-          padding-top: 5px;
-          span {
+
+          &.m {
+            border-color: $male-color;
+          }
+
+          &.f {
+            border-color: $female-color;
+          }
+        }
+      }
+
+      .nickname {
+        text-align: center;
+        font-weight: bold;
+        padding-top: 5px;
+        span {
+          color: $unknown-color;
+
+          &.f {
+            color: $female-color;
+          }
+
+          &.m {
+            color: $male-color;
+          }
+        }
+      }
+    }
+
+    .thought-content {
+      color: black;
+      min-height: 95px;
+    }
+
+    .date, .comments-quantity {
+      font-size: 13px;
+      color: #313131;
+      padding: 10px 15px 0;
+      float: right;
+      font-family: 'Arial';
+      font-style: italic;
+    }
+
+    &-positive {
+      background-color: rgba(185, 255, 171, 0.76);
+
+    }
+
+    &-negative {
+      background-color: rgba(255, 187, 198, 0.76);
+    }
+
+    &-neutral {
+      background-color: rgba(230, 230, 230, 0.76);
+    }
+  }
+
+
+  //Comment on detail page
+  .comments {
+    background-color: #FFF;
+    padding: 20px 40px 20px;
+    border-radius: 3px;
+    border: 1px solid #d8d8d8;
+    .title {
+      font-size: 25px;
+      margin: 15px 0;
+    }
+
+    .comment {
+      padding: 10px 5px;
+      .user-avatar {
+        float: left;
+        .avatar{
+          border-radius:50%;
+          width: 60px;
+          height: 60px;
+          border: 3px solid $unknown-color;
+          &.m {
+            border-color: $male-color;
+          }
+
+          &.f {
+            border-color: $female-color;
+          }
+        }
+      }
+
+      .content {
+        margin-left: 60px;
+        padding: 0px 15px;
+
+        .header {
+          padding-top: 3px;
+          .nickname {
+            font-weight: bold;
             color: $unknown-color;
 
             &.f {
@@ -92,78 +290,25 @@ body {
               color: $male-color;
             }
           }
+
+          .date {
+            font-size: 12px;
+            color: #767676;
+            padding-left: 10px;
+          }
+
+          a:hover {
+            text-decoration: none;
+          }
         }
       }
-
-      .thought-content {
-        color: black;
-        min-height: 95px;
-      }
-
-      .date, .comments-quantity {
-        font-size: 13px;
-        color: #313131;
-        padding: 10px 15px 0;
-        float: right;
-        font-family: 'Arial';
-        font-style: italic;
-      }
-
-      &-positive {
-        background-color: rgba(185, 255, 171, 0.76);
-
-        &:hover {
-          background-color: rgba(168, 239, 153, 1);
-        }
-      }
-
-      &-negative {
-        background-color: rgba(255, 187, 198, 0.76);
-
-        &:hover {
-          background-color: rgba(255, 162, 177, 1);
-        }
-      }
-
-      &-neutral {
-        background-color: rgba(230, 230, 230, 0.76);
-
-        &:hover {
-          background-color: rgba(208, 206, 206, 1);
-        }
-      }
-    }
-
-    a:hover {
-      text-decoration: none;
     }
   }
 }
-// MAIN END *********************************************************************
+//END detail-page
 
 
- // update/delete page buttons(css sram ;DD)
- .thought-update {
-    background-color: #FFF;
-    padding: 20px 40px 80px;
-    border-radius: 3px;
-    border: 1px solid #d8d8d8;
-
-    .wrapper {
-    position: relative;
-
-    form button {
-      position: absolute;
-    }
-    .thought-delete-button {
-      margin-left: 100px;
-    }
-  }
- }
-
-
-
-//PARASHA NADO POMENEATI1!!! dETAIL PAGE
+//css sram ostavil dlea profile
 .thought {
   margin-bottom: 25px;
   color: black;
@@ -237,70 +382,6 @@ body {
 
   &-neutral {
     background-color: rgba(230, 230, 230, 0.76);
-  }
-}
-
-
-//Comment on detail page
-.comments {
-  background-color: #FFF;
-  padding: 20px 40px 20px;
-  border-radius: 3px;
-  border: 1px solid #d8d8d8;
-  .title {
-    font-size: 25px;
-    margin: 15px 0;
-  }
-
-  .comment {
-    padding: 10px 5px;
-    .user-avatar {
-      float: left;
-      .avatar{
-        border-radius:50%;
-        width: 60px;
-        height: 60px;
-        border: 3px solid $unknown-color;
-        &.m {
-          border-color: $male-color;
-        }
-
-        &.f {
-          border-color: $female-color;
-        }
-      }
-    }
-
-    .content {
-      margin-left: 60px;
-      padding: 0px 15px;
-
-      .header {
-        padding-top: 3px;
-        .nickname {
-          font-weight: bold;
-          color: $unknown-color;
-
-          &.f {
-            color: $female-color;
-          }
-
-          &.m {
-            color: $male-color;
-          }
-        }
-
-        .date {
-          font-size: 12px;
-          color: #767676;
-          padding-left: 10px;
-        }
-
-        a:hover {
-          text-decoration: none;
-        }
-      }
-    }
   }
 }
 
@@ -426,5 +507,61 @@ body {
     h2 {
       color: #545353;
     }
+  }
+}
+
+
+//Login page
+.login-page {
+  background-color: #fff;
+  padding: 0px 0px 20px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+  border-bottom: 62px solid $page-border;
+
+  h1 {
+    text-align: center;
+    margin: 0;
+    background-color: $page-border;
+    color: #fff;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .login-form {
+    margin: 70px 0 30px;
+    padding:0 30px;
+  }
+
+  .links {
+    padding: 0 30px;
+    margin-bottom: 50px;
+  }
+}
+
+
+.register-page {
+  background-color: #fff;
+  padding: 0px 0px 20px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+  border-bottom: 62px solid $page-border;
+
+  h1 {
+    text-align: center;
+    margin: 0;
+    background-color: $page-border;
+    color: #fff;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .register-form {
+    margin: 50px 0;
+    padding: 0 40px;
   }
 }

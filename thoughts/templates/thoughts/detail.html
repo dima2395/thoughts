@@ -4,70 +4,72 @@
 {% block title %}Detail{% endblock %}
 
 {% block main %}
-  <div class="thought thought-{{ thought.status }}">
-    <div class="row">
-      <div class="thought-author-info col-md-2">
-        <div class="avatar-wrapper">
-          <a href="{% url "accounts:profile-detail" thought.user.id %}">
-            <img src="{{ thought.user.profile.avatar.url }}" alt="Avatar" class="avatar {{ thought.user.profile.gender }}">
-          </a>
-        </div>
-        <div class="nickname">
-          <a href="{% url "accounts:profile-detail" thought.user.id %}">
-            <span class="{{ thought.user.profile.gender }}">{{ thought.user.username }}</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="thought-content col-md-10">
-        <p>{{ thought.text }}</p>
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="date">{{ thought.date }}</div>
-    </div>
-  </div>
-
-  <div class="comments">
-    <div class="title">Comments({{thought.comment_set.count}}):</div>
-
-    {% if user.is_authenticated %}
-      <form action="." method="post">
-        {% include "thoughts/form_template.html" with form=commentForm %}
-        <button type="submit" class="btn btn-success btn-md">Comment</button>
-      </form>
-      {% if thought.comment_set.count %}
-        <hr>
-      {% endif %}
-      
-    {% endif %}
-
-
-    {% for comment in thought.comment_set.all reversed %}
-      <div class="comment clearfix">
-
-        <div class="user-avatar">
-          <a href="{% url "accounts:profile-detail" comment.user.id %}">
-            <img src="{{ comment.user.profile.avatar.url }}" alt="" class="avatar {{ comment.user.profile.gender }}">
-          </a>
-        </div>
-
-        <div class="content">
-          <div class="header">
-            <a href="{% url "accounts:profile-detail" comment.user.id %}">
-              <span class="nickname {{ comment.user.profile.gender }}">{{ comment.user.username }}</span>
+  <div class="detail-page">
+    <div class="thought thought-{{ thought.status }}">
+      <div class="row">
+        <div class="thought-author-info col-md-2">
+          <div class="avatar-wrapper">
+            <a href="{% url "accounts:profile-detail" thought.user.id %}">
+              <img src="{{ thought.user.profile.avatar.url }}" alt="Avatar" class="avatar {{ thought.user.profile.gender }}">
             </a>
-            <span class="date">{{ comment.date|naturaltime }}</span>
           </div>
-          <div class="body">
-            <p>{{ comment.text }}</p>
+          <div class="nickname">
+            <a href="{% url "accounts:profile-detail" thought.user.id %}">
+              <span class="{{ thought.user.profile.gender }}">{{ thought.user.username }}</span>
+            </a>
           </div>
         </div>
-        
+
+        <div class="thought-content col-md-10">
+          <p>{{ thought.text }}</p>
+        </div>
+
       </div>
-    {% endfor %}
+
+      <div class="row">
+        <div class="date">{{ thought.date }}</div>
+      </div>
+    </div>
+
+    <div class="comments">
+      <div class="title">Comments({{thought.comment_set.count}}):</div>
+
+      {% if user.is_authenticated %}
+        <form action="." method="post">
+          {% include "thoughts/form_template.html" with form=commentForm %}
+          <button type="submit" class="btn btn-success btn-md">Comment</button>
+        </form>
+        {% if thought.comment_set.count %}
+          <hr>
+        {% endif %}
+        
+      {% endif %}
+
+
+      {% for comment in thought.comment_set.all reversed %}
+        <div class="comment clearfix">
+
+          <div class="user-avatar">
+            <a href="{% url "accounts:profile-detail" comment.user.id %}">
+              <img src="{{ comment.user.profile.avatar.url }}" alt="" class="avatar {{ comment.user.profile.gender }}">
+            </a>
+          </div>
+
+          <div class="content">
+            <div class="header">
+              <a href="{% url "accounts:profile-detail" comment.user.id %}">
+                <span class="nickname {{ comment.user.profile.gender }}">{{ comment.user.username }}</span>
+              </a>
+              <span class="date">{{ comment.date|naturaltime }}</span>
+            </div>
+            <div class="body">
+              <p>{{ comment.text }}</p>
+            </div>
+          </div>
+          
+        </div>
+      {% endfor %}
+    </div>
   </div>
   
 {% endblock %}
