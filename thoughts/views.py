@@ -137,10 +137,10 @@ def statistics(request):
   for gender in genders:
     if gender['user__profile__gender'] == 'm':
       genders_data['labels'].append('Male')
-      genders_data['bgcolors'].append('#287eff')
+      genders_data['bgcolors'].append('rgba(40, 126, 255, 0.65)')
     elif gender['user__profile__gender'] == 'f':
       genders_data['labels'].append('Female')
-      genders_data['bgcolors'].append('#ff28e4')
+      genders_data['bgcolors'].append('rgba(249, 17, 220, 0.65)')
     genders_data['values'].append(gender['count'])
 
 
