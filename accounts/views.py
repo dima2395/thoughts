@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
 from .forms import ProfileForm
 from django.db.models import Count
+from datetime import date
+from django import forms
 
 
 
@@ -56,12 +58,23 @@ def profile_proxy(request):
 
 def profile_update(request, pk):
   profile = get_object_or_404(Profile, pk=pk)
-  form = ProfileForm(request.POST or None, request.FILES or None, instance=profile)
+  form = ProfileForm(request.POST or None, request.FILES or None, instance=profile, initial={
+                      'year':profile.birthday.year,
+                      'month': profile.birthday.month,
+                      'day': profile.birthday.day
+                    })
 
   if profile.user == request.user:
 
     if form.is_valid():
-      form.save()
+      year = int(form.cleaned_data['year'])
+      month = int(form.cleaned_data['month'])
+      day = int(form.cleaned_data['day'])
+
+      profile = form.save(commit=False)
+      profile.birthday = date(year, month, day)
+      profile.save()
+
       return http.HttpResponseRedirect(profile.get_absolute_url())
 
     return render(request, 'thoughts/profile.html', {'form': form, 'profileUpdate': profile})

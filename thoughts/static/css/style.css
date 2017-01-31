@@ -236,8 +236,7 @@ body {
   padding: 0px 0px 20px;
   border-radius: 3px;
   border: 1px solid #d8d8d8;
-  border-bottom: 62px solid #323a54;
-  min-height: 800px; }
+  border-bottom: 62px solid #323a54; }
   .profile-page h1 {
     text-align: center;
     margin: 0;
@@ -269,6 +268,10 @@ body {
         color: #ff28e4; }
       .profile-page .avatar .username.m {
         color: #287eff; }
+    .profile-page .avatar a {
+      display: block;
+      font-size: 15px;
+      text-align: center; }
   .profile-page .statistics {
     margin-top: 30px; }
     .profile-page .statistics .chart-wrapper {

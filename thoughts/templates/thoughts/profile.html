@@ -20,6 +20,7 @@
           {% endif %}
 
           <form action="{% url "accounts:profile-update" profileUpdate.user.id %}" method="post" enctype="multipart/form-data">
+
             {% include "thoughts/form_template.html" %}
             <button type="submit" class="btn btn-success btn-md">Save</button>
           </form>
@@ -31,6 +32,7 @@
         <div class="avatar col-md-6">
           <img src="{{ profile.avatar.url}}" alt="Avatar" class="{{ profile.gender}}">
           <div class="username {{ profile.gender}}">{{ profile.user.username|default:"" }}</div>
+          <a href="{% url "accounts:profile-update" profile.user.id %}">Edit profile</a>
         </div>
         <div class="statistics col-md-6">
           <div class="chart-wrapper">

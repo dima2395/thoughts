@@ -392,7 +392,6 @@ body {
   border-radius: 3px;
   border: 1px solid #d8d8d8;
   border-bottom: 62px solid $page-border;
-  min-height: 800px;
 
   h1 {
     text-align: center;
@@ -440,6 +439,12 @@ body {
       &.m {
         color: $male-color;
       }
+    }
+
+    a {
+      display: block;
+      font-size: 15px;
+      text-align: center;
     }
   }
 
