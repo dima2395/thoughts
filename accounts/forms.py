@@ -1,8 +1,6 @@
 from django import forms
 from .models import Profile
 import datetime
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit, Field
 
 class ProfileForm(forms.ModelForm):
 
@@ -14,14 +12,6 @@ class ProfileForm(forms.ModelForm):
   class Meta:
     model = Profile
     fields=['year', 'month', 'day', 'country', 'gender', 'avatar']
-
-
-  def __init__(self, *args, **kwargs):
-    super(ProfileForm, self).__init__(*args, **kwargs)
-    self.helper = FormHelper()
-    self.helper.layout = Layout(
-      Field('year', value=r'{{profileUpdate.birthday.year}}')
-    )
 
 
   def clean_year(self):
