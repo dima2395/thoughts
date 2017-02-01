@@ -2,5 +2,8 @@
 {% load i18n %}
 
 {% block main %}
-<p>{% trans "Your account is now activated." %}</p>
+  <div class="register-page">
+  <h1>Registration</h1>
+    <div class="alert alert-success" role="alert">{% trans "Your account is now activated." %}</div>
+  </div>
 {% endblock %}

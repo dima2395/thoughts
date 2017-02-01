@@ -58,10 +58,20 @@ def profile_proxy(request):
 
 def profile_update(request, pk):
   profile = get_object_or_404(Profile, pk=pk)
+
+  try:
+    u_year = profile.birthday.year #check if date exist
+    u_month = profile.birthday.month
+    u_day = profile.birthday.day
+  except:
+    u_year = None # u - user
+    u_month = None
+    u_day = None
+
   form = ProfileForm(request.POST or None, request.FILES or None, instance=profile, initial={
-                      'year':profile.birthday.year,
-                      'month': profile.birthday.month,
-                      'day': profile.birthday.day
+                      'year':u_year,
+                      'month': u_month,
+                      'day': u_day
                     })
 
   if profile.user == request.user:

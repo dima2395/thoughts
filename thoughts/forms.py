@@ -13,3 +13,6 @@ class ThoughtForm(forms.ModelForm):
   class Meta:
     model = Thought
     fields = ['text', 'status']
+    labels = {
+      'status': 'Type'
+    }

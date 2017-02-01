@@ -341,7 +341,8 @@ body {
   padding: 0px 0px 20px;
   border-radius: 3px;
   border: 1px solid #d8d8d8;
-  border-bottom: 62px solid #323a54; }
+  border-bottom: 62px solid #323a54;
+  min-height: 500px; }
   .register-page h1 {
     text-align: center;
     margin: 0;
@@ -354,5 +355,7 @@ body {
   .register-page .register-form {
     margin: 50px 0;
     padding: 0 40px; }
+  .register-page .alert-success {
+    margin: 30px 10px 70px; }
 
 /*# sourceMappingURL=style.css.map */

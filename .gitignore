@@ -4,4 +4,5 @@ static
 media
 website/settings.py
 .env
- 
+thoughts/migrations
+accounts/migrations

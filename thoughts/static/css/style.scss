@@ -553,6 +553,7 @@ body {
   border-radius: 3px;
   border: 1px solid #d8d8d8;
   border-bottom: 62px solid $page-border;
+  min-height: 500px;
 
   h1 {
     text-align: center;
@@ -568,5 +569,9 @@ body {
   .register-form {
     margin: 50px 0;
     padding: 0 40px;
+  }
+
+  .alert-success {
+    margin: 30px 10px 70px;
   }
 }
