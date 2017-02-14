@@ -4,14 +4,13 @@ $unknown-color: #ff8b28;
 $page-border: #323a54; //#739ad6
 
 
-
 body {
   background-image: url('../images/bg.png');
 }
 
 .header {
   nav.navbar {
-    border-radius: 0px;
+    border-radius: 0;
     -webkit-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
     -moz-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
     box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
@@ -27,21 +26,20 @@ body {
 //START thoughts page
 .thoughts-page {
   background-color: #fff;
-  padding: 0px 0px 20px;
+  padding: 0 0 20px;
   border-radius: 3px;
   border: 1px solid #d8d8d8;
   // border-bottom: 62px solid $page-border;
 
   h1 {
     text-align: center;
-    margin: 0;
     background-color: $page-border;
     color: #fff;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: 30px;
+    margin: 0 0 30px;
   }
 
   .thoughts {
@@ -99,16 +97,24 @@ body {
     .thought-content {
       color: black;
       min-height: 95px;
+      p {
+        padding: 5px 10px;
+      }
     }
 
-    .date, .comments-quantity {
-      font-size: 13px;
-      color: #313131;
-      padding: 10px 15px 0;
-      float: right;
-      font-family: 'Arial';
-      font-style: italic;
+    .info {
+      margin-top: 12px;
+      border-top: 1px solid rgba(125, 98, 98, 0.3);
+      .date, .comments-quantity {
+        font-size: 13px;
+        color: #313131;
+        padding: 10px 15px 0;
+        float: right;
+        font-family: 'Arial', sans-serif;
+        font-style: italic;
+      }
     }
+
 
     &-positive {
       background-color: rgba(185, 255, 171, 0.76);
@@ -218,13 +224,17 @@ body {
       min-height: 95px;
     }
 
-    .date, .comments-quantity {
-      font-size: 13px;
-      color: #313131;
-      padding: 10px 15px 0;
-      float: right;
-      font-family: 'Arial';
-      font-style: italic;
+    .info {
+      margin-top: 12px;
+      border-top: 1px solid rgba(125, 98, 98, 0.3);
+      .date, .comments-quantity {
+        font-size: 13px;
+        color: #313131;
+        padding: 10px 15px 0;
+        float: right;
+        font-family: 'Arial', sans-serif;
+        font-style: italic;
+      }
     }
 
     &-positive {
@@ -274,7 +284,7 @@ body {
 
       .content {
         margin-left: 60px;
-        padding: 0px 15px;
+        padding: 0 15px;
 
         .header {
           padding-top: 3px;
@@ -308,87 +318,9 @@ body {
 //END detail-page
 
 
-//css sram ostavil dlea profile
-.thought {
-  margin-bottom: 25px;
-  color: black;
-  transition: all 0.2s;
-  padding: 20px 10px 15px;
-  border-radius: 5px;
-  -webkit-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
-  -moz-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
-  box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
-
-  .thought-author-info {
-    .avatar-wrapper {
-      text-align: center;
-      .avatar {
-        border-radius:50%;
-        width: 75px;
-        height: 75px;
-        border: 3px solid $unknown-color;
-        text-align: center;
-
-        &.m {
-          border-color: $male-color;
-        }
-
-        &.f {
-          border-color: $female-color;
-        }
-      }
-    }
-
-    .nickname {
-      text-align: center;
-      font-weight: bold;
-      padding-top: 5px;
-      span {
-        color: $unknown-color;
-
-        &.f {
-          color: $female-color;
-        }
-
-        &.m {
-          color: $male-color;
-        }
-      }
-    }
-  }
-
-  .thought-content {
-    color: black;
-    min-height: 95px;
-  }
-
-  .date, .comments-quantity {
-    font-size: 13px;
-    color: #313131;
-    padding: 10px 15px 0;
-    float: right;
-    font-family: 'Arial';
-    font-style: italic;
-  }
-
-  &-positive {
-    background-color: rgba(185, 255, 171, 0.76);
-
-  }
-
-  &-negative {
-    background-color: rgba(255, 187, 198, 0.76);
-  }
-
-  &-neutral {
-    background-color: rgba(230, 230, 230, 0.76);
-  }
-}
-
-
 .profile-page {
   background-color: #fff;
-  padding: 0px 0px 20px;
+  padding: 0 0 20px;
   border-radius: 3px;
   border: 1px solid #d8d8d8;
   border-bottom: 62px solid $page-border;
@@ -461,6 +393,102 @@ body {
     padding: 30px;
 
     .thought {
+      margin-bottom: 25px;
+      color: black;
+      transition: all 0.2s;
+      padding: 20px 10px 15px;
+      border-radius: 5px;
+      -webkit-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+      -moz-box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+      box-shadow: 8px 8px 11px -5px rgba(97,94,97,0.69);
+      position: relative;
+
+      .thought-author-info {
+        .avatar-wrapper {
+          text-align: center;
+          .avatar {
+            border-radius:50%;
+            width: 75px;
+            height: 75px;
+            border: 3px solid $unknown-color;
+            text-align: center;
+
+            &.m {
+              border-color: $male-color;
+            }
+
+            &.f {
+              border-color: $female-color;
+            }
+          }
+        }
+
+        .nickname {
+          text-align: center;
+          font-weight: bold;
+          padding-top: 5px;
+          span {
+            color: $unknown-color;
+
+            &.f {
+              color: $female-color;
+            }
+
+            &.m {
+              color: $male-color;
+            }
+          }
+        }
+      }
+      a {
+        .thought-content {
+          color: black;
+          min-height: 95px;
+          p {
+            padding: 25px 92px 20px 20px;
+            text-decoration: none;
+          }
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      
+
+      .thought-edit {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      .info {
+        margin-top: 12px;
+        border-top: 1px solid rgba(125, 98, 98, 0.3);
+        .date, .comments-quantity {
+          font-size: 13px;
+          color: #313131;
+          padding: 10px 15px 0;
+          float: right;
+          font-family: 'Arial', sans-serif;
+          font-style: italic;
+        }
+      }
+
+      &-positive {
+        background-color: rgba(185, 255, 171, 0.76);
+
+      }
+
+      &-negative {
+        background-color: rgba(255, 187, 198, 0.76);
+      }
+
+      &-neutral {
+        background-color: rgba(230, 230, 230, 0.76);
+      }
+    }
+
+    .thought {
       position: relative;
       .thought-content {
         p {
@@ -490,7 +518,7 @@ body {
 
 .statistics-page {
   background-color: #fff;
-  padding: 0px 0px 20px;
+  padding: 0 0 20px;
   border-radius: 3px;
   border: 1px solid #d8d8d8;
   border-bottom: 62px solid $page-border;
@@ -506,7 +534,7 @@ body {
     padding-bottom: 10px;
   }
   .chart-wrapper {
-    width: 500px;
+    max-width: 500px;
     margin: 55px auto;
     text-align: center;
     h2 {
@@ -519,7 +547,7 @@ body {
 //Login page
 .login-page {
   background-color: #fff;
-  padding: 0px 0px 20px;
+  padding: 0 0 20px;
   border-radius: 3px;
   border: 1px solid #d8d8d8;
   border-bottom: 62px solid $page-border;
@@ -549,7 +577,7 @@ body {
 
 .register-page {
   background-color: #fff;
-  padding: 0px 0px 20px;
+  padding: 0 0 20px;
   border-radius: 3px;
   border: 1px solid #d8d8d8;
   border-bottom: 62px solid $page-border;

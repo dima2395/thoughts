@@ -17,14 +17,16 @@
 
       <a href="{% url "thoughts:detail" thought.id %}">
         <div class="thought-content col-md-10">
-          <p>{{ thought.text }}</p>
+          <p>{{ thought.text|truncatewords:"50" }}</p>
         </div>
       </a>
     </div>
 
-    <div class="row">
-      <div class="date">{{ thought.date|naturaltime }}</div>
-      <div class="comments-quantity">Comments: ({{ thought.comment_set.count}})</div>
+    <div class="info">
+        <div class="row">
+          <div class="date">{{ thought.date|naturaltime }}</div>
+          <div class="comments-quantity">Comments: ({{ thought.comment_set.count}})</div>
+        </div>
     </div>
   </div>
 {% endfor %}

@@ -6,3 +6,5 @@ website/settings.py
 .env
 thoughts/migrations
 accounts/migrations
+.idea
+requirements.txt

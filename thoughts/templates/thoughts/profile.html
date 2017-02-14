@@ -45,23 +45,9 @@
           {% if thoughts.count %}
             {% for thought in thoughts %}
               <div class="thought thought-{{ thought.status }}">
-                <div class="row">
-                  <div class="thought-author-info col-md-2">
-                    <div class="avatar-wrapper">
-                      <a href="{% url "accounts:profile-detail" thought.user.id %}">
-                        <img src="{{ thought.user.profile.avatar.url }}" alt="Avatar" class="avatar {{ thought.user.profile.gender }}">
-                      </a>
-                    </div>
-                    <div class="nickname">
-                      <a href="{% url "accounts:profile-detail" thought.user.id %}">
-                        <span class="{{ thought.user.profile.gender }}">{{ thought.user.username }}</span>
-                      </a>
-                    </div>
-                  </div>
-
                   <a href="{% url "thoughts:detail" thought.id %}">
-                    <div class="thought-content col-md-10">
-                      <p>{{ thought.text }}</p>
+                    <div class="thought-content">
+                      <p>{{ thought.text|truncatewords:"50" }}</p>
                     </div>
                   </a>
                   {% if user == profile.user %}
@@ -71,12 +57,12 @@
                       </a>
                     </div>
                   {% endif %}
-                  
-                </div>
 
-                <div class="row">
-                  <div class="date">{{ thought.date|naturaltime }}</div>
-                  <div class="comments-quantity">Comments: ({{ thought.comment_set.count}})</div>
+                <div class="info">
+                    <div class="row">
+                      <div class="date">{{ thought.date|naturaltime }}</div>
+                      <div class="comments-quantity">Comments: ({{ thought.comment_set.count}})</div>
+                    </div>
                 </div>
                 
               </div>
@@ -106,7 +92,7 @@
         datasets: [{
           data: {{ statuses_data.values|safe }},
           backgroundColor: {{ statuses_data.bgcolors|safe }},
-          label: "Your mindset",
+          label: "Your mindset"
         }]
       }, //end data
       options: {
@@ -124,7 +110,7 @@
           }
         },
         legend: {
-          position: 'bottom',
+          position: 'bottom'
         }
       }
     })
