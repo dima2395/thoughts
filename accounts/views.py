@@ -1,15 +1,17 @@
 from django.shortcuts import render, get_object_or_404
-from django.contrib.auth import authenticate, login
-from django.views import generic
 from .models import Profile
 from thoughts.models import Thought
 from django import http
-from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse, reverse_lazy
 from .forms import ProfileForm
 from django.db.models import Count
 from datetime import date
-from django import forms
+
+
+
+#redirects to user's profile
+def profile_proxy(request):
+    return http.HttpResponseRedirect(request.user.profile.get_absolute_url())
 
 
 
@@ -40,19 +42,6 @@ def profile_detail(request, pk):
       else:
         return http.HttpResponseRedirect(reverse_lazy('thoughts:index'))
     return render(request, 'thoughts/profile.html', {"profile": profile, "thoughts": thoughts, "statuses_data": statuses_data})
-
-
-
-def profile_proxy(request):
-  if request.method == 'GET':
-    user = request.user
-    try:
-      getattr(user, 'profile')
-    except Profile.DoesNotExist:
-      user.profile = Profile(user=user)
-      user.profile.save()
-    return http.HttpResponseRedirect(user.profile.get_absolute_url())
-
 
 
 
