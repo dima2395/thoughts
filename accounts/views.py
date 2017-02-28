@@ -90,7 +90,9 @@ def profile_update(request, pk):
 
 
 def signup(request):
-    logout(request)
+    if request.user.is_authenticated():
+        logout(request)
+        return http.HttpResponseRedirect(reverse('accounts:signup'))
 
     if request.method == 'POST':
         form = SignUpForm(request.POST)
