@@ -1,6 +1,7 @@
-{% load i18n %}
-{% trans "Activate account at" %} {{ site.name }}:
+{% autoescape off %}
+    Hi {{ user.username }},
 
-http://{{ site.domain }}{% url 'registration_activate' activation_key %}
+    Please click on the link below to confirm your registration:
 
-{% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}
+    http://{{ domain }}{% url 'accounts:activate' uid64=uid token=token %}
+{% endautoescape %}
